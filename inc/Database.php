@@ -21,7 +21,9 @@ class Database
 		$this->conn = NULL;
 	}
 	
-	// Register
+	/***********************
+	*	Person
+	************************/
 	public function addPerson($phoneNumber, $gender, $firstName, $middleName, $familyName, $birthDate)
 	{
 		// Edit strings for register
@@ -127,10 +129,9 @@ class Database
 		return $result;
 	}
 	
-	//
-	// NEWS
-	//
-	
+	/***********************
+	*	News
+	************************/
 	public function addNews($picture, $title, $content, $author)
 	{	
 		$date = datetimeTurkey();
@@ -158,14 +159,35 @@ class Database
 			return false;
 	}
 	
-	public function updateNews()
+	public function getNews($min, $max)
+	{
+		$stmt = $this->conn->prepare("SELECT * FROM  `news` LIMIT ? , ?");
+		$stmt->bindValue(1, $min, PDO::PARAM_INT);
+		$stmt->bindValue(2, $max, PDO::PARAM_INT);
+		$stmt->execute();
+		
+		$news = $stmt->fetchAll(PDO::FETCH_ASSOC);
+		
+		if ($news)
+			return $news;
+		else
+			return false;
+	}
+	
+	public function updateNews($newsID)
 	{
 	}
 	
-	public function deleteNews()
+	public function deleteNews($newsID)
 	{
+		$stmt = $this->conn->prepare("DELETE FROM news WHERE id = :id");
+		$stmt->bindParam(':id', $newsID, PDO::PARAM_INT);
+		$result = $stmt->execute();
+		
+		if ($result)
+			return true;
+		else
+			return false;
 	}
-	
-	
 }
 ?>
