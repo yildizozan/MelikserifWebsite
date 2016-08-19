@@ -22,11 +22,11 @@ class Database
 	// Register
 	public function addPerson($phoneNumber, $gender, $firstName, $middleName, $familyName, $birthDate)
 	{
-		//Lowercase
-		$gender = mb_strtolower($gender, 'UTF-8');
-		$firstName = mb_strtolower($firstName, 'UTF-8');
-		$middleName = mb_strtolower($middleName, 'UTF-8');
-		$familyName = mb_strtolower($familyName, 'UTF-8');
+		// Edit strings for register
+		$gender = mb_convert_case($gender, MB_CASE_TITLE, "UTF-8");
+		$firstName = mb_convert_case($firstName, MB_CASE_TITLE, "UTF-8");
+		$middleName = mb_convert_case($middleName, MB_CASE_TITLE, "UTF-8");
+		$familyName = mb_convert_case($familyName, MB_CASE_TITLE, "UTF-8");
 		
 		// Register Date
 		$timezone  = +3; //(GMT +3:00) EST (Turkey) 
