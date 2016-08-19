@@ -22,6 +22,12 @@ class Database
 	// Register
 	public function addPerson($phoneNumber, $gender, $firstName, $middleName, $familyName, $birthDate)
 	{
+		//Lowercase
+		$gender = mb_strtolower($gender, 'UTF-8');
+		$firstName = mb_strtolower($firstName, 'UTF-8');
+		$middleName = mb_strtolower($middleName, 'UTF-8');
+		$familyName = mb_strtolower($familyName, 'UTF-8');
+		
 		// Register Date
 		$timezone  = +3; //(GMT +3:00) EST (Turkey) 
 		$register = gmdate("Y-m-d H:i:s", time() + 3600*($timezone+date("I")));
