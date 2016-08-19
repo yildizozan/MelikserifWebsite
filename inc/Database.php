@@ -8,8 +8,9 @@ class Database
 			require_once 'Secret.php';	
 			
 			// Connection to mysql database with PDO
+			$this->conn = new PDO('mysql:host='.DB_HOST.';dbname='.DB_NAME, DB_USER, DB_PASSWORD);
 			$this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			//$this->conn->exec("set names utf8");
+			$this->conn->exec("set names utf8");
 			
 	}
 	
@@ -19,15 +20,16 @@ class Database
 	}
 	
 	// Register
-	public function addPerson($phoneNumber, $firstName, $middleName, $familyName, $birthDate)
+	public function addPerson($phoneNumber, $gender, $firstName, $middleName, $familyName, $birthDate)
 	{
 		// Register Date
 		$timezone  = +3; //(GMT +3:00) EST (Turkey) 
 		$register = gmdate("Y-m-d H:i:s", time() + 3600*($timezone+date("I")));
 	
-		$stmt = $this->conn->prepare("INSERT INTO person (phoneNumber, register, firstName, middleName, familyName, birthDate) VALUES (:phoneNumber, :register, :firstName, :middleName, :familyName, :birthDate)");
+		$stmt = $this->conn->prepare("INSERT INTO person (phoneNumber, register, gender, firstName, middleName, familyName, birthDate) VALUES (:phoneNumber, :register, :gender, :firstName, :middleName, :familyName, :birthDate)");
 		$stmt->bindParam(':phoneNumber', $phoneNumber);
 		$stmt->bindParam(':register', $register);
+		$stmt->bindParam(':gender', $gender);
 		$stmt->bindParam(':firstName', $firstName);
 		$stmt->bindParam(':middleName', $middleName);
 		$stmt->bindParam(':familyName', $familyName);
