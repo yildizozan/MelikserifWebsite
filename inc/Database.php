@@ -98,7 +98,7 @@ class Database
 	public function login($phoneNumber)
 	{
 		$stmt = $this->conn->prepare("SELECT * FROM users WHERE phoneNumber = :phoneNumber");
-		$stmt->bindParam(':phoneNumber', $phoneNumber);
+		$stmt->bindParam(':phoneNumber', $phoneNumber, PDO::PARAM_INT);
 		$stmt->execute();
 
 		$user = $stmt->fetch(PDO::FETCH_ASSOC);		
@@ -139,8 +139,8 @@ class Database
 		$stmt = $this->conn->prepare("INSERT INTO news (picture, date, title, content, author) VALUES (:picture, :date, :title, :content, :author)");
 		$stmt->bindParam(':picture', $picture);
 		$stmt->bindParam(':date', $date);
-		$stmt->bindParam(':title', $title);
-		$stmt->bindParam(':content', $content);
+		$stmt->bindParam(':title', $title, PDO::PARAM_STR);
+		$stmt->bindParam(':content', $content, PDO::PARAM_STR);
 		$stmt->bindParam(':author', $author);
 		$result = $stmt->execute();
 		
@@ -174,8 +174,13 @@ class Database
 			return false;
 	}
 	
-	public function updateNews($newsID)
+	public function updateNews($id, $title, $content)
 	{
+		$stmt = $this->conn->prepare("UPDATE news SET title = :title, content = :content WHERE id = :id");
+		$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+		$stmt->bindParam(':title', $title, PDO::PARAM_STR);
+		$stmt->bindParam(':content', $content, PDO::PARAM_STR);
+		$result = $stmt->execute();
 	}
 	
 	public function deleteNews($newsID)
