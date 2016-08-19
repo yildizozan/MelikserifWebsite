@@ -42,7 +42,7 @@ class Database
 		$stmt->bindParam(':birthDate', $birthDate);
 		$result = $stmt->execute();
 		
-		if	($result)
+		if ($result)
 		{
 			$stmt = $this->conn->prepare("SELECT * FROM person WHERE phoneNumber = :phoneNumber");
 			$stmt->bindParam(':phoneNumber', $phoneNumber);
@@ -58,9 +58,30 @@ class Database
 		}
 	}
 	
-	public function getPerson()
+	public function getPeople()
 	{
+		$stmt = $this->conn->prepare("SELECT * FROM person");
+		$stmt->execute();
+		$people = $stmt->fetch(PDO::FETCH_ASSOC);
 		
+		if ($people)
+			return $people;
+		else
+			return false;
+	}
+	
+	public function getPerson($phoneNumber)
+	{
+		$stmt = $this->conn->prepare("SELECT * FROM person WHERE phoneNumber = :phoneNumber");
+		$stmt->bindParam('phoneNumber', $phoneNumber);
+		$stmt->execute();
+		
+		$person = $stmt->fetch(PDO::FETCH_ASSOC);
+		
+		if ($person)
+			return $person;
+		else
+			return false;
 	}
 	
 	public function updatePerson()
@@ -72,7 +93,7 @@ class Database
 	}
 	
 	// Login
-		public function login($phoneNumber)
+	public function login($phoneNumber)
 	{
 		$stmt = $this->conn->prepare("SELECT * FROM users WHERE phoneNumber = :phoneNumber");
 		$stmt->bindParam(':phoneNumber', $phoneNumber);
