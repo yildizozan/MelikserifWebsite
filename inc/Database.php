@@ -5,10 +5,10 @@ class Database
 	
 	function __construct()
 	{
-			require_once 'inc/Secret.php';	
+			require_once 'Secret.php';	
 			
 			// Connection to mysql database with PDO
-			$this->conn = new PDO('mysql:host=localhost; dbname=yildizoz_melikserifkoyu', DB_USER, DB_PASSWORD);
+			$this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			//$this->conn->exec("set names utf8");
 			
 	}
@@ -18,10 +18,12 @@ class Database
 		$this->conn = NULL;
 	}
 	
+	// Register
 	public function addPerson($phoneNumber, $firstName, $middleName, $familyName, $birthDate)
 	{
 		// Register Date
-		$register = date("Y-m-d H:i:s");
+		$timezone  = +3; //(GMT +3:00) EST (Turkey) 
+		$register = gmdate("Y-m-d H:i:s", time() + 3600*($timezone+date("I")));
 	
 		$stmt = $this->conn->prepare("INSERT INTO person (phoneNumber, register, firstName, middleName, familyName, birthDate) VALUES (:phoneNumber, :register, :firstName, :middleName, :familyName, :birthDate)");
 		$stmt->bindParam(':phoneNumber', $phoneNumber);
@@ -46,7 +48,12 @@ class Database
 		{
 			return false;	
 		}
-	} // end function register
+	}
+	
+	public function getPerson()
+	{
+		
+	}
 	
 	public function updatePerson()
 	{
