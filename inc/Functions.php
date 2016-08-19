@@ -25,4 +25,11 @@ function passGenerator()
 	
 	return $pass;
 }
+
+function datetimeTurkey()
+{
+	$timezone  = +3; //(GMT +3:00) EST (Turkey) 
+	return gmdate("Y-m-d H:i:s", time() + 3600*($timezone+date("I")));
+}
+
 ?>

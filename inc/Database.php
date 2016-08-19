@@ -1,11 +1,13 @@
 <?php
+require_once 'Functions.php';
+
 class Database
 {
 	private $conn;
 	
 	function __construct()
 	{
-			require_once 'Secret.php';	
+			require_once 'Secret.php';
 			
 			// Connection to mysql database with PDO
 			$this->conn = new PDO('mysql:host='.DB_HOST.';dbname='.DB_NAME, DB_USER, DB_PASSWORD);
@@ -28,9 +30,7 @@ class Database
 		$middleName = mb_convert_case($middleName, MB_CASE_TITLE, "UTF-8");
 		$familyName = mb_convert_case($familyName, MB_CASE_TITLE, "UTF-8");
 		
-		// Register Date
-		$timezone  = +3; //(GMT +3:00) EST (Turkey) 
-		$register = gmdate("Y-m-d H:i:s", time() + 3600*($timezone+date("I")));
+		$register = datetimeTurkey();
 	
 		$stmt = $this->conn->prepare("INSERT INTO person (phoneNumber, register, gender, firstName, middleName, familyName, birthDate) VALUES (:phoneNumber, :register, :gender, :firstName, :middleName, :familyName, :birthDate)");
 		$stmt->bindParam(':phoneNumber', $phoneNumber);
@@ -85,7 +85,7 @@ class Database
 	}
 	
 	public function updatePerson()
-	{
+	{ 
 	}
 	
 	public function deletePerson()
@@ -126,6 +126,46 @@ class Database
 		
 		return $result;
 	}
+	
+	//
+	// NEWS
+	//
+	
+	public function addNews($picture, $title, $content, $author)
+	{	
+		$date = datetimeTurkey();
+		
+		$stmt = $this->conn->prepare("INSERT INTO news (picture, date, title, content, author) VALUES (:picture, :date, :title, :content, :author)");
+		$stmt->bindParam(':picture', $picture);
+		$stmt->bindParam(':date', $date);
+		$stmt->bindParam(':title', $title);
+		$stmt->bindParam(':content', $content);
+		$stmt->bindParam(':author', $author);
+		$result = $stmt->execute();
+		
+		if ($result)
+		{
+			$id = $this->conn->lastInsertId();
+			$stmt = $this->conn->prepare("SELECT * FROM news WHERE id = :id");
+			$stmt->bindParam(':id', $id);
+			$stmt->execute();
+			
+			$news = $stmt->fetch(PDO::FETCH_ASSOC);
+
+			return $news;
+		}
+		else
+			return false;
+	}
+	
+	public function updateNews()
+	{
+	}
+	
+	public function deleteNews()
+	{
+	}
+	
 	
 }
 ?>
