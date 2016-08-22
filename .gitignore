@@ -46,5 +46,10 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-#Key
+# Secret
 Secret.php
+init.php
+
+# Dreamweaver files
+error_log
+_notes
