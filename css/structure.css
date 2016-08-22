@@ -1,0 +1,174 @@
+@charset "utf-8";
+/* NAV MENU (DEACTIVE)
+.navigationTop {
+	width: 100%;
+	height: 65px;
+	background-color: rgba(155,211,239,1.00);
+}
+.navigationTop .buttonTopMenuElement a{
+	display: block;
+	padding: 19px;
+	position: relative;
+	float: left;
+	color: rgba(9,22,31,1.00);
+	text-decoration: none;
+}
+.navigationTop .buttonTopMenuElement a:hover{
+	background-color: rgba(9,22,31,1.00);
+	color: rgba(155,211,239,1.00);
+}
+*******************************/
+
+/***** SECTION COMMON ************/
+.sectionFrameCommon {
+	position: relative;
+}
+
+/***** SECTION LOGO  **********/
+#sectionLogo {
+	height: 800px;
+	background-image: url(../img/AgpyZpYe2HsOJLL8K9hO94ysySpqSQ9cKVbXiVovQGB.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+/*** SECTION NEWS **************************/
+#sectionNews {
+	height: 700px;
+	max-height: 1200px;
+	background-color: rgba(221,235,246,1.00);
+	color: rgba(9,22,31,1.00);
+}
+.sectionNewsItemBorder {
+	width: 1300px;
+	height: 480px;
+	position: absolute;
+	left:50%;
+	top:50%;
+	margin-left: -650px;
+	margin-top: -240px;
+}
+.sectionNewsItem {
+	width: 400px;
+	height: 200px;
+	position: relative;
+	float: left;
+	margin: 10px;
+	background-image: url(../img/t%C3%BCrbanl%C4%B1-olup-bira-i%C3%A7en-k%C4%B1zlar_366502.jpg);
+	background-size: cover;
+}
+.sectionNewsTitle {
+	position: relative;
+	top: 150px;
+	margin: 0 10px;
+	padding: 10px 0 10px 10px;
+	background-color: rgba(221,235,246,0.80);
+}
+.sectionNewsDate {
+	float: right;
+	text-align: right;
+	margin-top: 10px;
+	margin-right: 10px;
+	padding: 5px;
+	background-color: rgba(221,235,246,0.80);
+	font-size: 13pt;
+}
+
+
+/*** SECTION BIG BOSS ***************************/
+#sectionBigBoss {
+	height: 600px;
+	background-image: url(../img/bigboss_wallpaper.jpg);
+}
+.sectionBBBorder {
+	width: 1200px;
+	position: absolute;
+	left:50%;
+	top:50%;
+	margin-left: -600px;
+	margin-top: -195px;
+}
+.sectionBBPic {
+	width: 295px;
+	height: 390px;
+	float: left;
+	position: relative;
+	background-image:url(../img/bigboss_pictureBorder.png);
+	-webkit-box-shadow: 23px 24px 39px -19px rgba(0,0,0,0.75);
+	-moz-box-shadow: 23px 24px 39px -19px rgba(0,0,0,0.75);
+	box-shadow: 23px 24px 39px -19px rgba(0,0,0,0.75);
+	}
+.bigBossPic {
+	width: 235px;
+	height: 330px;
+	position: absolute;
+	margin: 30px;
+	background-size: cover;
+	-webkit-box-shadow: inset 18px 18px 39px -19px rgba(0,0,0,0.75);
+	-moz-box-shadow: inset 18px 18px 39px -19px rgba(0,0,0,0.75);
+	box-shadow: inset 18px 18px 39px -19px rgba(0,0,0,0.75);
+}
+.sectionBBBio {
+	width: 705px;
+	height: 290px;
+	float: left;
+	margin-left: 30px;
+	padding: 50px;
+	position: relative;
+	overflow: hidden;
+	background-image: url(../img/han%C4%B1maga_yaz%C4%B1_zemin.jpg);
+}
+/*** SECTION ORG ************************/
+#sectionOrganisation {
+	height: 500px;
+	background-color: rgba(32,155,140,1.00);
+}
+
+/*** SECTION ROOTS **********************/
+#sectionRoots {
+	height: 400px;
+	background-image: url(../img/roots-wallpaper.jpg);
+}
+.sectionRootsBorder {
+	width: 1023px;
+		position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -512px;
+	margin-top: -150px;
+}
+.sectionRootsPicBorder {
+	width: 201px;
+	height: 265px;
+	float: left;
+	background-image: url(../img/roots-PicBorder.png);
+}
+.rootsSpace {
+	width: 160px;
+	height:265px;
+	float: left;
+}
+.sectionRootsPic {
+	width: 161px;
+	height: 225px;
+	position: absolute;
+	margin: 20px;
+	background-size: cover;
+}
+.rootWho {
+	width: 201px;
+	position: relative;
+	top: 265px;
+	text-align: center;
+	color: rgba(221,234,247,1.00);
+}
+/*** SECTION MAPS ********/
+.maps {
+	height: 300px;
+}
+/*** FOOTER ***********/
+footer {
+	width: 100%;
+	height: 200px;
+	background-color: rgba(74,74,74,1.00);
+}

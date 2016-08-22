@@ -1,0 +1,87 @@
+@charset "utf-8";
+
+/*** RESET */
+body, html, div, blockquote, img, label, p, h1, h2, h3, h4, h5, h6, pre, ul,
+ol, li, dl, dt, dd, form, a, fieldset, input, th, td
+{
+margin: 0; padding: 0; border: 0; outline: none;
+}
+
+/*** News Section ************************/
+.sectionNewsTitle {
+	width: 100%;
+	position: relative;
+	text-align: center;
+	background-color: rgba(255,255,255,0.30);
+	color: rgba(255,255,255,1.00);
+}
+.sectionNewsTitle a{
+	color: rgba(255,255,255,1.00);
+}
+
+/**** News Section **********************/
+.newsPic {
+	width: 100%;
+	height: 750px;
+	max-height: 80%;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+/**** News main ****************************/
+.newItems {
+	width: 100%;
+	position: relative;
+	float: left;
+}
+.newsTitleContent {
+	width: 90%;
+	height: 60px;
+	margin: auto;
+	padding: 10px;
+	position: relative;
+	border-bottom: thin solid rgba(250,168,87,1.00);
+}
+.newsTitleItem {
+	position: relative;
+	float: left;
+}
+#newsDate {
+	padding-right: 6px;
+	text-align: right;
+	border-right: thin solid rgba(250,168,87,1.00);
+	color: rgba(140,140,140,1.00)
+}
+#newsTitle {
+	padding-left: 15px;
+	font-size: 3em;
+	font-weight: lighter;
+}
+.newsContent {
+	width: 90%;
+	margin: auto;
+	padding: 10px;
+}
+.newsContent p {
+	text-indent: 40px;
+	font-size: 1em;
+	margin-bottom: 13px;
+}
+
+/* Buttons */
+.buttonNav {
+	cursor: pointer;
+	position: relative;
+	background-color: rgba(255,255,255,0.20);
+}
+#buttonPrev {
+	width: 200px;
+	height: 750px;
+	float: left;
+}
+#buttonNext {
+	width: 200px;
+	height: 750px;
+	float: right;
+}
