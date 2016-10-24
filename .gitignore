@@ -53,3 +53,7 @@ init.php
 # Dreamweaver files
 error_log
 _notes
+
+# Pictures
+*.jpg
+*.png
