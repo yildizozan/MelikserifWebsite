@@ -1,5 +1,12 @@
 @charset "utf-8";
-.header {
+@import 'typography.css';
+html, body {
+	padding: 0px;
+	margin: 0;
+}
+
+/* Header ******/
+header div {
 	height: 600px;
 	background-image: url(../img/header.jpg);
 	background-position: 50% 50%;
@@ -7,37 +14,82 @@
 	background-repeat: no-repeat;
 	background-origin: border-box;
 }
-/* NEWS **********************************/
-.mainNews {
+
+/* News Sections ***/
+.section-news {
+	background: #8AECF7;
 }
-.sectionNewsItems {
-	width: 100%;
+
+.container {
+	width: 90%;
+	margin: 0 auto;	
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
 }
-.divItemsNews {
-	width: 320px;
-	height: 160px;
-	background-color: #FFF;
-	display: inline-block;
-	background-position: 50% 50%;
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-origin: border-box;
+
+.news-container {
 }
-.divItemsNewsTitle {
+
+.news-container-item {
 	padding: 10px;
-	position: relatite;
-	float: left;
-	background-color: hsla(0,0%,90%,0.50);
+	margin: 10px;
+	flex-grow: 1;
+	background: hsla(359,69%,28%,0.5);
 }
-.divItemsNewsDate {
-	float: right;
+
+/* Org Sections ***/
+.section-organisation {
+	background: #995CB0;
+}
+
+.container {
+	width: 90%;
+	margin: 0 auto;	
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+}
+
+.organisation-container {
+}
+
+.organisation-container-item {
 	padding: 10px;
-	text-align: right;
-	background-color: hsla(0,0%,100%,0.50);
-	position: relative;
+	margin: 10px;
+	flex-grow: 1;
+	background: hsla(359,69%,28%,0.5);
 }
-/* NEWS **********************************/
-.articleOrganisation {
-	height: 600px;
-	background-color: #CACACA;
+
+/* Boss Sections ***/
+.section-boss {
+	background: #1E6187;
+}
+
+.container {
+	width: 90%;
+	margin: 0 auto;	
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+}
+
+.boss-container {
+}
+
+.boss-container-item {
+	padding: 10px;
+	margin: 10px;
+	flex-grow: 1;
+	background: hsla(359,69%,28%,0.5);
+}
+
+
+/* Footer *****/
+footer {
+	height: 150px;
+	color: #FFF;
+	background: #057A98;
+	text-align: center;
+	align-items: center;
 }
